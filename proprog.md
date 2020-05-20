@@ -41,6 +41,11 @@ This does not mean there isn’t generally a very good idea to use git. The abil
 
 **Link to programming style guide including how to comment code.**
 
+During our project we have used the Unity3D standard as our coding style guide. Link: https://wiki.unity3d.com/index.php/Csharp_Coding_Guidelines 
+There is a part in the style guide about how to comment the code too.
+We chose the unity3D style guide as we were developing inside Unity and thought that would be the most uniform style guide with unity assets and unity documentation.
+
+
 **Use of libraries and integration of libraries Professionalism in your approach to software development**
 
 Here we have gotten fairly easy off during our thesis. Using libraries with Unity is very easy. It is mainly going on the Unity Asset Store, finding the package you are looking for, and clicking on import. Unity will then take care of integrating said library into our project by itself. I think a lot of tasks would require a better structure over third party libraries, and the discussion of what is needed and what isn’t to avoid bloating where necessary, but our project has had little contact with this as everything gets structured for us when we import from Unity.
@@ -78,4 +83,20 @@ All of these parts make this ugly code in my opinion.
 
 **A link to two pieces of code, a before and after refactoring. This will include a discussion of why the code was refactored**
 
+This is the pain of not using git in the project, and losing the ability to see old versions, it makes it very much harder to track down the before files of refactoring. Luckily, we did try to mitigate this by saving some changes separately and working in different scenes, and I do think I have a fairly good example. So the code in question(you can see it in before.cpp and after.cpp) is one from my bachelor project, the project is a house showcase application in VR and the script has to do with button clicking on a user interface in the VR space. The script is supposed to listen after a specific button on the VR controller being pushed, then check a raycast for a collision and if that collision is a button, execute the buttons onClick function. 
+
+I wrote “supposed to” because as you can see in the before script, it's not exactly like that. The script uses the update function and runs the raycast continuously, then it checks if the button is pressed, then runs the onClick. This worked most of the time, but didn’t always work, and depending on the space and length of raycast didn’t work at all. It also kept triggering some of the debug logs we had a ridiculous amount of times, and it hampered performance with how many times it ran.
+
+Me and my project partner sat down, I used him as my rubber duck as we pair programmed our way through the problem, and modified the code to make it work, and also keepe with the standard we sat. This made us end up with the after code. Here we have a function that only triggers when the button is pressed, we then send out one raycast, instead of an array of everything it hits we only take the first thing, we check if thats a button, if it is we execute onClick. This removed the bugs and the performance lag from our application, and it helped it stay better to the standard we had set.
+
+This particular example is a good one for me, as it helped me experience technical debt for myself. I first hacked together a shoddy working script that somewhat did what I wanted but at a cost to performance and the code standard we had planned to adhere to, and me and my project partner had to work together to fix the mistakes a time after. 
+
+
 **A personal reflection about professionalism in programming**
+
+What do I think when I hear professionalism in programming? This is another question I really haven’t thought about before this class. I think what I am most surprised about is that I don’t actually think of coding gurus when I think of professionals in the field. I actually am under the impression that those amazing programmers that are purely hired for their skills are usually more unprofessional in a way.
+I think a large part of being a professional programmer comes down to teamwork. That it doesn’t matter if you're one of the great programmers in the world, if nobody can work with you then you are unprofessional. 
+
+I think being able to follow coding structures set down by others. Following actual messages from others without pushing for another way(this is discussable of course as there shouldn’t be anything bad about pitching other ideas) are qualities a professional programmer needs. But it is also the simple(or at least should be simple) things like meeting on time, joining in on company stand ups and simply just showering and personal hygiene(which sadly is lacking with some of the programmers i have met).
+
+A lot of this goes under professionalism in general, no matter the field. I think one thing that isn’t as relevant for most other fields is the constant need to learn new things. As programming is so rapidly expanding and changing I think there is a constant need to work on oneself both on and off one's work. This can be very interesting, but i can also imagine it being quite tiring. And that requires both a certain amount of discipline but also a good amount of professionalism. 
