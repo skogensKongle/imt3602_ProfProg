@@ -1,4 +1,5 @@
 **A list of the name of the students in the team**
+
 The bachelor team was:
 - Stian Sørslett
 - Benjamin Skinstad
@@ -17,7 +18,8 @@ For code i consider bad we have:
 - medaljer.cpp
 
 For code before and after refactoring we have:
-
+- before.cpp
+- after.cpp
 
 **Group discussion**
 **Strenghts and weaknesses of languages you used in your project:**
